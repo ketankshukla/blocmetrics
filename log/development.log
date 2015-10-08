@@ -9886,3 +9886,1190 @@ Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde45
 
 
 Started GET "/assets/application.self-140c6a75d63d349ab896a65eb255dda72f22900625e4b282f2723747805a3aec.js?body=1" for 127.0.0.1 at 2015-10-08 11:27:18 -0700
+
+
+Started POST "/api/events" for 127.0.0.1 at 2015-10-08 11:42:30 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by API::EventsController#create as JSON
+  Parameters: {"name"=>"Foxed It", "event"=>{"name"=>"Foxed It"}}
+  [1m[35mRegisteredApplication Load (0.2ms)[0m  SELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."url" = ? LIMIT 1  [["url", "http://www.foxnews.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("name", "registered_application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Foxed It"], ["registered_application_id", 7], ["created_at", "2015-10-08 18:42:30.523250"], ["updated_at", "2015-10-08 18:42:30.523250"]]
+  [1m[36m (119.8ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 178ms (Views: 1.3ms | ActiveRecord: 121.1ms)
+
+
+Started GET "/registered_applications/9" for 127.0.0.1 at 2015-10-08 12:13:39 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mRegisteredApplication Load (32.7ms)[0m  SELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mRegisteredApplication Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 9]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?[0m  [["registered_application_id", 9]]
+  Rendered registered_applications/show.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 1225ms (Views: 934.8ms | ActiveRecord: 33.3ms)
+
+
+Started GET "/assets/home.self-ebcf6e60396c3cd9ca10b8e3ff9bc797e79955df9cedf15fc4404aba0ea3468b.css?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/registered_applications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/scaffolds.self-bbfc8981b6d132860acdc1f7b05af4bd071c54241ef285352b0ca9b7344c6ce3.css?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/application.self-486367efc7be858903e77cfa0b8efc9e247c2fd28d39944c7b0a4e1615f0996d.css?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/registered_applications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/application.self-140c6a75d63d349ab896a65eb255dda72f22900625e4b282f2723747805a3aec.js?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:13:41 -0700
+
+
+Started OPTIONS "/api/events" for 127.0.0.1 at 2015-10-08 12:13:50 -0700
+Processing by API::EventsController#preflight as JSON
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/api/events" for 127.0.0.1 at 2015-10-08 12:13:51 -0700
+Processing by API::EventsController#create as JSON
+  Parameters: {"event"=>{"name"=>{"hash"=>"", "search"=>"", "pathname"=>"/", "port"=>"4000", "hostname"=>"localhost", "host"=>"localhost:4000", "protocol"=>"http:", "origin"=>"http://localhost:4000", "href"=>"http://localhost:4000/", "ancestorOrigins"=>{}}}}
+  [1m[35mRegisteredApplication Load (0.2ms)[0m  SELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."url" = ? LIMIT 1  [["url", "http://localhost:4000"]]
+Unpermitted parameter: name
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (56.9ms)[0m  INSERT INTO "events" ("registered_application_id", "created_at", "updated_at") VALUES (?, ?, ?)  [["registered_application_id", 9], ["created_at", "2015-10-08 19:13:51.268230"], ["updated_at", "2015-10-08 19:13:51.268230"]]
+  [1m[36m (132.3ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 196ms (Views: 1.1ms | ActiveRecord: 189.5ms)
+
+
+Started OPTIONS "/api/events" for 127.0.0.1 at 2015-10-08 12:14:03 -0700
+Processing by API::EventsController#preflight as JSON
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/api/events" for 127.0.0.1 at 2015-10-08 12:14:03 -0700
+Processing by API::EventsController#create as JSON
+  Parameters: {"event"=>{"name"=>{"hash"=>"", "search"=>"", "pathname"=>"/", "port"=>"4000", "hostname"=>"localhost", "host"=>"localhost:4000", "protocol"=>"http:", "origin"=>"http://localhost:4000", "href"=>"http://localhost:4000/", "ancestorOrigins"=>{}}}}
+  [1m[35mRegisteredApplication Load (0.1ms)[0m  SELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."url" = ? LIMIT 1  [["url", "http://localhost:4000"]]
+Unpermitted parameter: name
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("registered_application_id", "created_at", "updated_at") VALUES (?, ?, ?)  [["registered_application_id", 9], ["created_at", "2015-10-08 19:14:03.618452"], ["updated_at", "2015-10-08 19:14:03.618452"]]
+  [1m[36m (111.7ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 117ms (Views: 0.4ms | ActiveRecord: 112.2ms)
+
+
+Started GET "/registered_applications/9" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mRegisteredApplication Load (0.1ms)[0m  SELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mRegisteredApplication Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 9]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?[0m  [["registered_application_id", 9]]
+  Rendered registered_applications/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 135ms (Views: 130.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/registered_applications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/home.self-ebcf6e60396c3cd9ca10b8e3ff9bc797e79955df9cedf15fc4404aba0ea3468b.css?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/scaffolds.self-bbfc8981b6d132860acdc1f7b05af4bd071c54241ef285352b0ca9b7344c6ce3.css?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/application.self-486367efc7be858903e77cfa0b8efc9e247c2fd28d39944c7b0a4e1615f0996d.css?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/registered_applications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/assets/application.self-140c6a75d63d349ab896a65eb255dda72f22900625e4b282f2723747805a3aec.js?body=1" for 127.0.0.1 at 2015-10-08 12:14:08 -0700
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-10-08 12:15:22 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (572.7ms)
+Completed 200 OK in 739ms (Views: 723.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-10-08 12:15:29 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eI5CnwoSAAXj6ZD5+VMczpO+ZvmjLa/EWlTOi5zyGGmHrzywH4L9MOhOgbmG8MGSk+gOAFtOh7Dfvh/8L370IQ==", "user"=>{"email"=>"ketankshukla@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "ketankshukla@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-10-08 18:20:39.979666"], ["current_sign_in_at", "2015-10-08 19:15:30.381751"], ["sign_in_count", 7], ["updated_at", "2015-10-08 19:15:30.382779"], ["id", 5]]
+  [1m[36m (115.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 655ms (ActiveRecord: 116.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-08 12:15:30 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+Completed 200 OK in 147ms (Views: 145.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/registered_applications" for 127.0.0.1 at 2015-10-08 12:15:33 -0700
+Processing by RegisteredApplicationsController#index as HTML
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT "registered_applications".* FROM "registered_applications"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered registered_applications/_registered_application.html.erb (8.6ms)
+  Rendered registered_applications/index.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 142ms (Views: 140.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/registered_applications/9" for 127.0.0.1 at 2015-10-08 12:15:35 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mRegisteredApplication Load (0.2ms)[0m  SELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRegisteredApplication Exists (0.1ms)[0m  SELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?[0m  [["registered_application_id", 9]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?[0m  [["registered_application_id", 9]]
+  Rendered registered_applications/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 117ms (Views: 109.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/registered_applications/9" for 127.0.0.1 at 2015-10-08 12:18:19 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mRegisteredApplication Load (0.1ms)[0m  SELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRegisteredApplication Exists (0.1ms)[0m  SELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?[0m  [["registered_application_id", 9]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?[0m  [["registered_application_id", 9]]
+  Rendered registered_applications/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 135ms (Views: 129.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/registered_applications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 12:18:19 -0700
+
+
+Started GET "/assets/application.self-486367efc7be858903e77cfa0b8efc9e247c2fd28d39944c7b0a4e1615f0996d.css?body=1" for 127.0.0.1 at 2015-10-08 12:18:19 -0700
+
+
+Started GET "/assets/scaffolds.self-bbfc8981b6d132860acdc1f7b05af4bd071c54241ef285352b0ca9b7344c6ce3.css?body=1" for 127.0.0.1 at 2015-10-08 12:18:19 -0700
+
+
+Started GET "/assets/home.self-ebcf6e60396c3cd9ca10b8e3ff9bc797e79955df9cedf15fc4404aba0ea3468b.css?body=1" for 127.0.0.1 at 2015-10-08 12:18:19 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 12:18:19 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:19 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:19 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:19 -0700
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:19 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:19 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:19 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:19 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:19 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:20 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:20 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:20 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:20 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:20 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:20 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:20 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:20 -0700
+
+
+Started GET "/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:20 -0700
+
+
+Started GET "/assets/registered_applications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:20 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:20 -0700
+
+
+Started GET "/assets/application.self-140c6a75d63d349ab896a65eb255dda72f22900625e4b282f2723747805a3aec.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:20 -0700
+
+
+Started GET "/registered_applications/9" for 127.0.0.1 at 2015-10-08 12:18:26 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mRegisteredApplication Load (0.2ms)[0m  SELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRegisteredApplication Exists (0.1ms)[0m  SELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?[0m  [["registered_application_id", 9]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?[0m  [["registered_application_id", 9]]
+  Rendered registered_applications/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 169ms (Views: 161.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/home.self-ebcf6e60396c3cd9ca10b8e3ff9bc797e79955df9cedf15fc4404aba0ea3468b.css?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/registered_applications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/scaffolds.self-bbfc8981b6d132860acdc1f7b05af4bd071c54241ef285352b0ca9b7344c6ce3.css?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/application.self-486367efc7be858903e77cfa0b8efc9e247c2fd28d39944c7b0a4e1615f0996d.css?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/registered_applications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started GET "/assets/application.self-140c6a75d63d349ab896a65eb255dda72f22900625e4b282f2723747805a3aec.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:27 -0700
+
+
+Started OPTIONS "/api/events" for 127.0.0.1 at 2015-10-08 12:18:33 -0700
+Processing by API::EventsController#preflight as JSON
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/api/events" for 127.0.0.1 at 2015-10-08 12:18:33 -0700
+Processing by API::EventsController#create as JSON
+  Parameters: {"event"=>{"name"=>"http://localhost:4000/topics/2"}}
+  [1m[35mRegisteredApplication Load (0.1ms)[0m  SELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."url" = ? LIMIT 1  [["url", "http://localhost:4000"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "registered_application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "http://localhost:4000/topics/2"], ["registered_application_id", 9], ["created_at", "2015-10-08 19:18:33.941530"], ["updated_at", "2015-10-08 19:18:33.941530"]]
+  [1m[36m (140.8ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 147ms (Views: 1.0ms | ActiveRecord: 141.3ms)
+
+
+Started GET "/registered_applications/9" for 127.0.0.1 at 2015-10-08 12:18:42 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mRegisteredApplication Load (0.1ms)[0m  SELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mRegisteredApplication Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 9]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?[0m  [["registered_application_id", 9]]
+  Rendered registered_applications/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 134ms (Views: 129.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/registered_applications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/home.self-ebcf6e60396c3cd9ca10b8e3ff9bc797e79955df9cedf15fc4404aba0ea3468b.css?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/scaffolds.self-bbfc8981b6d132860acdc1f7b05af4bd071c54241ef285352b0ca9b7344c6ce3.css?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/application.self-486367efc7be858903e77cfa0b8efc9e247c2fd28d39944c7b0a4e1615f0996d.css?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/registered_applications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started GET "/assets/application.self-140c6a75d63d349ab896a65eb255dda72f22900625e4b282f2723747805a3aec.js?body=1" for 127.0.0.1 at 2015-10-08 12:18:43 -0700
+
+
+Started OPTIONS "/api/events" for 127.0.0.1 at 2015-10-08 12:19:27 -0700
+Processing by API::EventsController#preflight as JSON
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/api/events" for 127.0.0.1 at 2015-10-08 12:19:27 -0700
+Processing by API::EventsController#create as JSON
+  Parameters: {"event"=>{"name"=>"http://localhost:4000/topics/2"}}
+  [1m[35mRegisteredApplication Load (0.1ms)[0m  SELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."url" = ? LIMIT 1  [["url", "http://localhost:4000"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "events" ("name", "registered_application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "http://localhost:4000/topics/2"], ["registered_application_id", 9], ["created_at", "2015-10-08 19:19:27.984964"], ["updated_at", "2015-10-08 19:19:27.984964"]]
+  [1m[36m (129.6ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 134ms (Views: 0.4ms | ActiveRecord: 130.3ms)
+
+
+Started GET "/registered_applications/9" for 127.0.0.1 at 2015-10-08 12:19:30 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mRegisteredApplication Load (0.1ms)[0m  SELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mRegisteredApplication Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 9]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?[0m  [["registered_application_id", 9]]
+  Rendered registered_applications/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 122ms (Views: 117.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 12:19:30 -0700
+
+
+Started GET "/assets/home.self-ebcf6e60396c3cd9ca10b8e3ff9bc797e79955df9cedf15fc4404aba0ea3468b.css?body=1" for 127.0.0.1 at 2015-10-08 12:19:30 -0700
+
+
+Started GET "/assets/scaffolds.self-bbfc8981b6d132860acdc1f7b05af4bd071c54241ef285352b0ca9b7344c6ce3.css?body=1" for 127.0.0.1 at 2015-10-08 12:19:30 -0700
+
+
+Started GET "/assets/application.self-486367efc7be858903e77cfa0b8efc9e247c2fd28d39944c7b0a4e1615f0996d.css?body=1" for 127.0.0.1 at 2015-10-08 12:19:31 -0700
+
+
+Started GET "/assets/registered_applications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 12:19:31 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-08 12:19:31 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for 127.0.0.1 at 2015-10-08 12:19:31 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for 127.0.0.1 at 2015-10-08 12:19:31 -0700
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for 127.0.0.1 at 2015-10-08 12:19:31 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for 127.0.0.1 at 2015-10-08 12:19:31 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for 127.0.0.1 at 2015-10-08 12:19:31 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for 127.0.0.1 at 2015-10-08 12:19:31 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for 127.0.0.1 at 2015-10-08 12:19:31 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for 127.0.0.1 at 2015-10-08 12:19:31 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for 127.0.0.1 at 2015-10-08 12:19:31 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for 127.0.0.1 at 2015-10-08 12:19:31 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for 127.0.0.1 at 2015-10-08 12:19:31 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for 127.0.0.1 at 2015-10-08 12:19:31 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-10-08 12:19:31 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-08 12:19:31 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-08 12:19:31 -0700
+
+
+Started GET "/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:19:31 -0700
+
+
+Started GET "/assets/registered_applications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:19:31 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:19:31 -0700
+
+
+Started GET "/assets/application.self-140c6a75d63d349ab896a65eb255dda72f22900625e4b282f2723747805a3aec.js?body=1" for 127.0.0.1 at 2015-10-08 12:19:31 -0700
+
+
+Started OPTIONS "/api/events" for 127.0.0.1 at 2015-10-08 12:20:08 -0700
+Processing by API::EventsController#preflight as JSON
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/api/events" for 127.0.0.1 at 2015-10-08 12:20:08 -0700
+Processing by API::EventsController#create as JSON
+  Parameters: {"event"=>{"name"=>"http://localhost:4000/"}}
+  [1m[35mRegisteredApplication Load (0.3ms)[0m  SELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."url" = ? LIMIT 1  [["url", "http://localhost:4000"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("name", "registered_application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "http://localhost:4000/"], ["registered_application_id", 9], ["created_at", "2015-10-08 19:20:08.618754"], ["updated_at", "2015-10-08 19:20:08.618754"]]
+  [1m[36m (109.5ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 114ms (Views: 0.4ms | ActiveRecord: 110.1ms)
+
+
+Started GET "/registered_applications/9" for 127.0.0.1 at 2015-10-08 12:20:37 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mRegisteredApplication Load (0.2ms)[0m  SELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mRegisteredApplication Exists (0.1ms)[0m  SELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?[0m  [["registered_application_id", 9]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 9]]
+  Rendered registered_applications/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 123ms (Views: 117.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/scaffolds.self-bbfc8981b6d132860acdc1f7b05af4bd071c54241ef285352b0ca9b7344c6ce3.css?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/home.self-ebcf6e60396c3cd9ca10b8e3ff9bc797e79955df9cedf15fc4404aba0ea3468b.css?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/registered_applications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/application.self-486367efc7be858903e77cfa0b8efc9e247c2fd28d39944c7b0a4e1615f0996d.css?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/registered_applications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started GET "/assets/application.self-140c6a75d63d349ab896a65eb255dda72f22900625e4b282f2723747805a3aec.js?body=1" for 127.0.0.1 at 2015-10-08 12:20:38 -0700
+
+
+Started OPTIONS "/api/events" for 127.0.0.1 at 2015-10-08 12:21:21 -0700
+Processing by API::EventsController#preflight as JSON
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/api/events" for 127.0.0.1 at 2015-10-08 12:21:22 -0700
+Processing by API::EventsController#create as JSON
+  Parameters: {"event"=>{"name"=>"http://localhost:4000/topics/2"}}
+  [1m[36mRegisteredApplication Load (0.3ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."url" = ? LIMIT 1[0m  [["url", "http://localhost:4000"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "events" ("name", "registered_application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "http://localhost:4000/topics/2"], ["registered_application_id", 9], ["created_at", "2015-10-08 19:21:22.082910"], ["updated_at", "2015-10-08 19:21:22.082910"]]
+  [1m[35m (135.5ms)[0m  commit transaction
+Completed 201 Created in 146ms (Views: 1.5ms | ActiveRecord: 136.5ms)
+
+
+Started OPTIONS "/api/events" for 127.0.0.1 at 2015-10-08 12:21:39 -0700
+Processing by API::EventsController#preflight as JSON
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/api/events" for 127.0.0.1 at 2015-10-08 12:21:39 -0700
+Processing by API::EventsController#create as JSON
+  Parameters: {"event"=>{"name"=>"http://localhost:4000/topics/2/bookmarks/10/edit"}}
+  [1m[36mRegisteredApplication Load (0.1ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."url" = ? LIMIT 1[0m  [["url", "http://localhost:4000"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "registered_application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "http://localhost:4000/topics/2/bookmarks/10/edit"], ["registered_application_id", 9], ["created_at", "2015-10-08 19:21:39.541395"], ["updated_at", "2015-10-08 19:21:39.541395"]]
+  [1m[35m (121.9ms)[0m  commit transaction
+Completed 201 Created in 129ms (Views: 2.0ms | ActiveRecord: 122.3ms)
+
+
+Started GET "/registered_applications/9" for 127.0.0.1 at 2015-10-08 12:21:42 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mRegisteredApplication Load (0.1ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mRegisteredApplication Exists (0.1ms)[0m  SELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?[0m  [["registered_application_id", 9]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 9]]
+  Rendered registered_applications/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 133ms (Views: 128.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/home.self-ebcf6e60396c3cd9ca10b8e3ff9bc797e79955df9cedf15fc4404aba0ea3468b.css?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/registered_applications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/scaffolds.self-bbfc8981b6d132860acdc1f7b05af4bd071c54241ef285352b0ca9b7344c6ce3.css?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/application.self-486367efc7be858903e77cfa0b8efc9e247c2fd28d39944c7b0a4e1615f0996d.css?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/registered_applications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/assets/application.self-140c6a75d63d349ab896a65eb255dda72f22900625e4b282f2723747805a3aec.js?body=1" for 127.0.0.1 at 2015-10-08 12:21:43 -0700
+
+
+Started GET "/registered_applications/9" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mRegisteredApplication Exists (0.1ms)[0m  SELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?[0m  [["registered_application_id", 9]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 9]]
+  Rendered registered_applications/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 116ms (Views: 110.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/home.self-ebcf6e60396c3cd9ca10b8e3ff9bc797e79955df9cedf15fc4404aba0ea3468b.css?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/registered_applications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/application.self-486367efc7be858903e77cfa0b8efc9e247c2fd28d39944c7b0a4e1615f0996d.css?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/scaffolds.self-bbfc8981b6d132860acdc1f7b05af4bd071c54241ef285352b0ca9b7344c6ce3.css?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/registered_applications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/assets/application.self-140c6a75d63d349ab896a65eb255dda72f22900625e4b282f2723747805a3aec.js?body=1" for 127.0.0.1 at 2015-10-08 12:26:07 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-08 13:19:42 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 711ms (Views: 662.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-10-08 13:19:45 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 199ms (Views: 193.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-10-08 13:19:50 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M2iDVHDNRT/33Vewqg6H3a6+p7apAgLspf1OEucWuBajXZJ/ktNX5O1SLyMHvqRe7zopz4kzDoPSxSxlJVqHPg==", "user"=>{"email"=>"ketankshukla@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "ketankshukla@gmail.com"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (10.2ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-10-08 19:15:30.381751"], ["current_sign_in_at", "2015-10-08 20:19:51.041481"], ["sign_in_count", 8], ["updated_at", "2015-10-08 20:19:51.042793"], ["id", 5]]
+  [1m[35m (128.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 254ms (ActiveRecord: 139.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-08 13:19:51 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+Completed 200 OK in 166ms (Views: 164.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/registered_applications" for 127.0.0.1 at 2015-10-08 13:19:54 -0700
+Processing by RegisteredApplicationsController#index as HTML
+  [1m[35mRegisteredApplication Load (0.2ms)[0m  SELECT "registered_applications".* FROM "registered_applications"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered registered_applications/_registered_application.html.erb (8.3ms)
+  Rendered registered_applications/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 142ms (Views: 140.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/registered_applications/9" for 127.0.0.1 at 2015-10-08 13:19:56 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 9]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 9]]
+  Rendered registered_applications/show.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 134ms (Views: 123.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/registered_applications/9" for 127.0.0.1 at 2015-10-08 13:20:10 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mRegisteredApplication Load (0.1ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 9]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 9]]
+  Rendered registered_applications/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 152ms (Views: 146.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/registered_applications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 13:20:10 -0700
+
+
+Started GET "/assets/scaffolds.self-bbfc8981b6d132860acdc1f7b05af4bd071c54241ef285352b0ca9b7344c6ce3.css?body=1" for 127.0.0.1 at 2015-10-08 13:20:10 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 13:20:10 -0700
+
+
+Started GET "/assets/home.self-ebcf6e60396c3cd9ca10b8e3ff9bc797e79955df9cedf15fc4404aba0ea3468b.css?body=1" for 127.0.0.1 at 2015-10-08 13:20:10 -0700
+
+
+Started GET "/assets/application.self-486367efc7be858903e77cfa0b8efc9e247c2fd28d39944c7b0a4e1615f0996d.css?body=1" for 127.0.0.1 at 2015-10-08 13:20:10 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:10 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:10 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:10 -0700
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:10 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:10 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:10 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:10 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:10 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:10 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:10 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:10 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:10 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:10 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:10 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:10 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:11 -0700
+
+
+Started GET "/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:11 -0700
+
+
+Started GET "/assets/registered_applications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:11 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:11 -0700
+
+
+Started GET "/assets/application.self-140c6a75d63d349ab896a65eb255dda72f22900625e4b282f2723747805a3aec.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:11 -0700
+
+
+Started GET "/registered_applications/9" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 9]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 9]]
+  Rendered registered_applications/show.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 148ms (Views: 139.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/registered_applications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/application.self-486367efc7be858903e77cfa0b8efc9e247c2fd28d39944c7b0a4e1615f0996d.css?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/home.self-ebcf6e60396c3cd9ca10b8e3ff9bc797e79955df9cedf15fc4404aba0ea3468b.css?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/scaffolds.self-bbfc8981b6d132860acdc1f7b05af4bd071c54241ef285352b0ca9b7344c6ce3.css?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/registered_applications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
+
+
+Started GET "/assets/application.self-140c6a75d63d349ab896a65eb255dda72f22900625e4b282f2723747805a3aec.js?body=1" for 127.0.0.1 at 2015-10-08 13:20:19 -0700
