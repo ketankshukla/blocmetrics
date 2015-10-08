@@ -1,0 +1,21 @@
+This is the default User Registration template
+This template was created so as to re-use it in various projects.
+
+The technologies used in this project are
+
+Bootstrap
+
+Devise Gem
+
+Simple Form
+
+Sending email in development via Mandrill (You need to register for a free account and get the password)
+
+Sending email in production via SendGrid
+
+
+Still to add:
+
+Create roles for users - Admin, Member, Guest etc.
+
+List all users in the system when logged in as Admin
