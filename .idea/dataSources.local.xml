@@ -2,5 +2,6 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="Rails blocmarks: development" uuid="7f17fc0e-d98a-42eb-822c-81ac0d31ba57" />
+    <data-source name="Rails blocmarks: test" uuid="fc6d4f91-58ff-413e-a16c-f468b718f1fa" />
   </component>
 </project>

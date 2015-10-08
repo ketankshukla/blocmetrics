@@ -26,6 +26,8 @@ gem 'devise'
 gem 'simple_form'
 gem 'pundit'
 gem 'faker'
+gem 'chartkick'
+gem 'groupdate'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

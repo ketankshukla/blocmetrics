@@ -8177,3 +8177,1143 @@ Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde45
 
 
 Started GET "/assets/application.self-140c6a75d63d349ab896a65eb255dda72f22900625e4b282f2723747805a3aec.js?body=1" for 127.0.0.1 at 2015-10-08 03:55:10 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-08 04:09:45 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+Completed 200 OK in 2765ms (Views: 2736.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/registered_applications" for 127.0.0.1 at 2015-10-08 04:09:50 -0700
+Processing by RegisteredApplicationsController#index as HTML
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT "registered_applications".* FROM "registered_applications"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered registered_applications/_registered_application.html.erb (16.5ms)
+  Rendered registered_applications/index.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 174ms (Views: 166.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/registered_applications/7" for 127.0.0.1 at 2015-10-08 04:09:52 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRegisteredApplication Load (0.4ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) AS count_all, name AS name FROM "events" WHERE "events"."registered_application_id" = ? GROUP BY "events"."name"  [["registered_application_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) AS count_all, name AS name FROM "events" WHERE "events"."registered_application_id" = ? GROUP BY "events"."name"[0m  [["registered_application_id", 7]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  Rendered registered_applications/show.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 186ms (Views: 154.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-08 04:12:44 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.4ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+Completed 200 OK in 580ms (Views: 567.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/registered_applications" for 127.0.0.1 at 2015-10-08 04:12:47 -0700
+Processing by RegisteredApplicationsController#index as HTML
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT "registered_applications".* FROM "registered_applications"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered registered_applications/_registered_application.html.erb (16.3ms)
+  Rendered registered_applications/index.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 137ms (Views: 131.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/registered_applications/7" for 127.0.0.1 at 2015-10-08 04:12:49 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRegisteredApplication Load (0.3ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) AS count_all, name AS name FROM "events" WHERE "events"."registered_application_id" = ? GROUP BY "events"."name"  [["registered_application_id", 7]]
+  Rendered registered_applications/show.html.erb within layouts/application (8.5ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 1.4ms)
+
+ActionView::Template::Error (Connection adapter not supported: SQLite):
+    14:         <div>
+    15:           <%= name %> <span class="badge"><%= events.count %></span>
+    16:           <%= pie_chart @registered_application.events.group(:name).count %>
+    17:           <%= line_chart @registered_application.events.group_by_day(:created_at).count %>
+    18:         </div>
+    19:     <% end %>
+    20:     <br>
+  app/views/registered_applications/show.html.erb:17:in `block (2 levels) in _app_views_registered_applications_show_html_erb___1203047636214167349_70007248415480'
+  app/views/registered_applications/show.html.erb:13:in `each'
+  app/views/registered_applications/show.html.erb:13:in `block in _app_views_registered_applications_show_html_erb___1203047636214167349_70007248415480'
+  app/views/registered_applications/show.html.erb:1:in `_app_views_registered_applications_show_html_erb___1203047636214167349_70007248415480'
+
+
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.7ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.2ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (33.5ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (17.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (35.0ms)
+
+
+Started GET "/registered_applications/7" for 127.0.0.1 at 2015-10-08 04:12:49 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRegisteredApplication Load (0.1ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) AS count_all, name AS name FROM "events" WHERE "events"."registered_application_id" = ? GROUP BY "events"."name"  [["registered_application_id", 7]]
+  Rendered registered_applications/show.html.erb within layouts/application (8.1ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.9ms)
+
+ActionView::Template::Error (Connection adapter not supported: SQLite):
+    14:         <div>
+    15:           <%= name %> <span class="badge"><%= events.count %></span>
+    16:           <%= pie_chart @registered_application.events.group(:name).count %>
+    17:           <%= line_chart @registered_application.events.group_by_day(:created_at).count %>
+    18:         </div>
+    19:     <% end %>
+    20:     <br>
+  app/views/registered_applications/show.html.erb:17:in `block (2 levels) in _app_views_registered_applications_show_html_erb___1203047636214167349_36431620'
+  app/views/registered_applications/show.html.erb:13:in `each'
+  app/views/registered_applications/show.html.erb:13:in `block in _app_views_registered_applications_show_html_erb___1203047636214167349_36431620'
+  app/views/registered_applications/show.html.erb:1:in `_app_views_registered_applications_show_html_erb___1203047636214167349_36431620'
+
+
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (18.1ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (49.9ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (28.9ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (56.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-08 04:14:22 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.2ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+Completed 200 OK in 573ms (Views: 555.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/registered_applications" for 127.0.0.1 at 2015-10-08 04:14:24 -0700
+Processing by RegisteredApplicationsController#index as HTML
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT "registered_applications".* FROM "registered_applications"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered registered_applications/_registered_application.html.erb (15.8ms)
+  Rendered registered_applications/index.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 139ms (Views: 132.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/registered_applications/7" for 127.0.0.1 at 2015-10-08 04:14:26 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) AS count_all, name AS name FROM "events" WHERE "events"."registered_application_id" = ? GROUP BY "events"."name"  [["registered_application_id", 7]]
+  Rendered registered_applications/show.html.erb within layouts/application (9.0ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 1.3ms)
+
+ActionView::Template::Error (Connection adapter not supported: SQLite):
+    14:         <div>
+    15:           <%= name %> <span class="badge"><%= events.count %></span>
+    16:           <%= pie_chart @registered_application.events.group(:name).count %>
+    17:           <%= line_chart @registered_application.events.group_by_day(:created_at).count %>
+    18:         </div>
+    19:     <% end %>
+    20:     <br>
+  app/views/registered_applications/show.html.erb:17:in `block (2 levels) in _app_views_registered_applications_show_html_erb__1351208629124764111_70354872390860'
+  app/views/registered_applications/show.html.erb:13:in `each'
+  app/views/registered_applications/show.html.erb:13:in `block in _app_views_registered_applications_show_html_erb__1351208629124764111_70354872390860'
+  app/views/registered_applications/show.html.erb:1:in `_app_views_registered_applications_show_html_erb__1351208629124764111_70354872390860'
+
+
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.7ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (26.2ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (16.5ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (33.3ms)
+
+
+Started GET "/registered_applications/7" for 127.0.0.1 at 2015-10-08 04:14:26 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRegisteredApplication Load (0.1ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) AS count_all, name AS name FROM "events" WHERE "events"."registered_application_id" = ? GROUP BY "events"."name"  [["registered_application_id", 7]]
+  Rendered registered_applications/show.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (Connection adapter not supported: SQLite):
+    14:         <div>
+    15:           <%= name %> <span class="badge"><%= events.count %></span>
+    16:           <%= pie_chart @registered_application.events.group(:name).count %>
+    17:           <%= line_chart @registered_application.events.group_by_day(:created_at).count %>
+    18:         </div>
+    19:     <% end %>
+    20:     <br>
+  app/views/registered_applications/show.html.erb:17:in `block (2 levels) in _app_views_registered_applications_show_html_erb__1351208629124764111_42018600'
+  app/views/registered_applications/show.html.erb:13:in `each'
+  app/views/registered_applications/show.html.erb:13:in `block in _app_views_registered_applications_show_html_erb__1351208629124764111_42018600'
+  app/views/registered_applications/show.html.erb:1:in `_app_views_registered_applications_show_html_erb__1351208629124764111_42018600'
+
+
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.5ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (28.5ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (16.9ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (33.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-08 04:17:00 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+Completed 200 OK in 507ms (Views: 494.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-08 04:17:04 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+Completed 200 OK in 119ms (Views: 117.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/scaffolds.self-bbfc8981b6d132860acdc1f7b05af4bd071c54241ef285352b0ca9b7344c6ce3.css?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/registered_applications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/application.self-486367efc7be858903e77cfa0b8efc9e247c2fd28d39944c7b0a4e1615f0996d.css?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/home.self-ebcf6e60396c3cd9ca10b8e3ff9bc797e79955df9cedf15fc4404aba0ea3468b.css?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/registered_applications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/assets/application.self-140c6a75d63d349ab896a65eb255dda72f22900625e4b282f2723747805a3aec.js?body=1" for 127.0.0.1 at 2015-10-08 04:17:05 -0700
+
+
+Started GET "/registered_applications" for 127.0.0.1 at 2015-10-08 04:17:07 -0700
+Processing by RegisteredApplicationsController#index as HTML
+  [1m[35mRegisteredApplication Load (0.2ms)[0m  SELECT "registered_applications".* FROM "registered_applications"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered registered_applications/_registered_application.html.erb (21.7ms)
+  Rendered registered_applications/index.html.erb within layouts/application (30.5ms)
+Completed 200 OK in 158ms (Views: 147.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/registered_applications/7" for 127.0.0.1 at 2015-10-08 04:17:08 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mRegisteredApplication Load (0.3ms)[0m  SELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRegisteredApplication Exists (0.2ms)[0m  SELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?[0m  [["registered_application_id", 7]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) AS count_all, name AS name FROM "events" WHERE "events"."registered_application_id" = ? GROUP BY "events"."name"[0m  [["registered_application_id", 7]]
+  Rendered registered_applications/show.html.erb within layouts/application (8.6ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 1.3ms)
+
+ActionView::Template::Error (Connection adapter not supported: SQLite):
+    14:         <div>
+    15:           <%= name %> <span class="badge"><%= events.count %></span>
+    16:           <%= pie_chart @registered_application.events.group(:name).count %>
+    17:           <%= line_chart @registered_application.events.group_by_day(:created_at).count %>
+    18:         </div>
+    19:     <% end %>
+    20:     <br>
+  app/views/registered_applications/show.html.erb:17:in `block (2 levels) in _app_views_registered_applications_show_html_erb___2645547111036180876_69945134866800'
+  app/views/registered_applications/show.html.erb:13:in `each'
+  app/views/registered_applications/show.html.erb:13:in `block in _app_views_registered_applications_show_html_erb___2645547111036180876_69945134866800'
+  app/views/registered_applications/show.html.erb:1:in `_app_views_registered_applications_show_html_erb___2645547111036180876_69945134866800'
+
+
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.1ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (25.1ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (15.6ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (30.6ms)
+
+
+Started GET "/registered_applications/7" for 127.0.0.1 at 2015-10-08 04:17:08 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mRegisteredApplication Load (0.2ms)[0m  SELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRegisteredApplication Exists (0.1ms)[0m  SELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?[0m  [["registered_application_id", 7]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) AS count_all, name AS name FROM "events" WHERE "events"."registered_application_id" = ? GROUP BY "events"."name"[0m  [["registered_application_id", 7]]
+  Rendered registered_applications/show.html.erb within layouts/application (5.3ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.9ms)
+
+ActionView::Template::Error (Connection adapter not supported: SQLite):
+    14:         <div>
+    15:           <%= name %> <span class="badge"><%= events.count %></span>
+    16:           <%= pie_chart @registered_application.events.group(:name).count %>
+    17:           <%= line_chart @registered_application.events.group_by_day(:created_at).count %>
+    18:         </div>
+    19:     <% end %>
+    20:     <br>
+  app/views/registered_applications/show.html.erb:17:in `block (2 levels) in _app_views_registered_applications_show_html_erb___2645547111036180876_69945125264440'
+  app/views/registered_applications/show.html.erb:13:in `each'
+  app/views/registered_applications/show.html.erb:13:in `block in _app_views_registered_applications_show_html_erb___2645547111036180876_69945125264440'
+  app/views/registered_applications/show.html.erb:1:in `_app_views_registered_applications_show_html_erb___2645547111036180876_69945125264440'
+
+
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.1ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.6ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (33.1ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (19.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (36.9ms)
+
+
+Started GET "/registered_applications/7" for 127.0.0.1 at 2015-10-08 04:17:22 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mRegisteredApplication Load (0.2ms)[0m  SELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRegisteredApplication Exists (0.1ms)[0m  SELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?[0m  [["registered_application_id", 7]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) AS count_all, name AS name FROM "events" WHERE "events"."registered_application_id" = ? GROUP BY "events"."name"[0m  [["registered_application_id", 7]]
+  Rendered registered_applications/show.html.erb within layouts/application (6.1ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.8ms)
+
+ActionView::Template::Error (Connection adapter not supported: SQLite):
+    14:         <div>
+    15:           <%= name %> <span class="badge"><%= events.count %></span>
+    16:           <%= pie_chart @registered_application.events.group(:name).count %>
+    17:           <%= line_chart @registered_application.events.group_by_day(:created_at).count %>
+    18:         </div>
+    19:     <% end %>
+    20:     <br>
+  app/views/registered_applications/show.html.erb:17:in `block (2 levels) in _app_views_registered_applications_show_html_erb___2645547111036180876_69945125264440'
+  app/views/registered_applications/show.html.erb:13:in `each'
+  app/views/registered_applications/show.html.erb:13:in `block in _app_views_registered_applications_show_html_erb___2645547111036180876_69945125264440'
+  app/views/registered_applications/show.html.erb:1:in `_app_views_registered_applications_show_html_erb___2645547111036180876_69945125264440'
+
+
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.8ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (33.2ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (22.5ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (39.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-08 04:22:55 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.7ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+Completed 200 OK in 3481ms (Views: 3460.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/registered_applications" for 127.0.0.1 at 2015-10-08 04:23:01 -0700
+Processing by RegisteredApplicationsController#index as HTML
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT "registered_applications".* FROM "registered_applications"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered registered_applications/_registered_application.html.erb (16.4ms)
+  Rendered registered_applications/index.html.erb within layouts/application (22.8ms)
+Completed 200 OK in 173ms (Views: 167.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/registered_applications/7" for 127.0.0.1 at 2015-10-08 04:23:02 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) AS count_all, name AS name FROM "events" WHERE "events"."registered_application_id" = ? GROUP BY "events"."name"  [["registered_application_id", 7]]
+  Rendered registered_applications/show.html.erb within layouts/application (10.9ms)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 1.2ms)
+
+ActionView::Template::Error (Connection adapter not supported: SQLite):
+    14:         <div>
+    15:           <%= name %> <span class="badge"><%= events.count %></span>
+    16:           <%= pie_chart @registered_application.events.group(:name).count %>
+    17:           <%= line_chart @registered_application.events.group_by_day(:created_at).count %>
+    18:         </div>
+    19:     <% end %>
+    20:     <br>
+  app/views/registered_applications/show.html.erb:17:in `block (2 levels) in _app_views_registered_applications_show_html_erb___3130352696399664079_70202540778340'
+  app/views/registered_applications/show.html.erb:13:in `each'
+  app/views/registered_applications/show.html.erb:13:in `block in _app_views_registered_applications_show_html_erb___3130352696399664079_70202540778340'
+  app/views/registered_applications/show.html.erb:1:in `_app_views_registered_applications_show_html_erb___3130352696399664079_70202540778340'
+
+
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.0ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (25.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (16.8ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (33.5ms)
+
+
+Started GET "/registered_applications/7" for 127.0.0.1 at 2015-10-08 04:23:03 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) AS count_all, name AS name FROM "events" WHERE "events"."registered_application_id" = ? GROUP BY "events"."name"  [["registered_application_id", 7]]
+  Rendered registered_applications/show.html.erb within layouts/application (7.4ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.9ms)
+
+ActionView::Template::Error (Connection adapter not supported: SQLite):
+    14:         <div>
+    15:           <%= name %> <span class="badge"><%= events.count %></span>
+    16:           <%= pie_chart @registered_application.events.group(:name).count %>
+    17:           <%= line_chart @registered_application.events.group_by_day(:created_at).count %>
+    18:         </div>
+    19:     <% end %>
+    20:     <br>
+  app/views/registered_applications/show.html.erb:17:in `block (2 levels) in _app_views_registered_applications_show_html_erb___3130352696399664079_70202529202360'
+  app/views/registered_applications/show.html.erb:13:in `each'
+  app/views/registered_applications/show.html.erb:13:in `block in _app_views_registered_applications_show_html_erb___3130352696399664079_70202529202360'
+  app/views/registered_applications/show.html.erb:1:in `_app_views_registered_applications_show_html_erb___3130352696399664079_70202529202360'
+
+
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (13.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (37.7ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (25.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (45.9ms)
+
+
+Started GET "/registered_applications/7" for 127.0.0.1 at 2015-10-08 04:23:11 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRegisteredApplication Load (0.3ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) AS count_all, name AS name FROM "events" WHERE "events"."registered_application_id" = ? GROUP BY "events"."name"  [["registered_application_id", 7]]
+  Rendered registered_applications/show.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.1ms)
+
+ActionView::Template::Error (Connection adapter not supported: SQLite):
+    14:         <div>
+    15:           <%= name %> <span class="badge"><%= events.count %></span>
+    16:           <%= pie_chart @registered_application.events.group(:name).count %>
+    17:           <%= line_chart @registered_application.events.group_by_day(:created_at).count %>
+    18:         </div>
+    19:     <% end %>
+    20:     <br>
+  app/views/registered_applications/show.html.erb:17:in `block (2 levels) in _app_views_registered_applications_show_html_erb___3130352696399664079_70202529202360'
+  app/views/registered_applications/show.html.erb:13:in `each'
+  app/views/registered_applications/show.html.erb:13:in `block in _app_views_registered_applications_show_html_erb___3130352696399664079_70202529202360'
+  app/views/registered_applications/show.html.erb:1:in `_app_views_registered_applications_show_html_erb___3130352696399664079_70202529202360'
+
+
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.8ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (27.6ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (19.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (36.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-08 04:26:06 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+Completed 200 OK in 538ms (Views: 523.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/registered_applications" for 127.0.0.1 at 2015-10-08 04:26:08 -0700
+Processing by RegisteredApplicationsController#index as HTML
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT "registered_applications".* FROM "registered_applications"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered registered_applications/_registered_application.html.erb (19.3ms)
+  Rendered registered_applications/index.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 155ms (Views: 148.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/registered_applications/7" for 127.0.0.1 at 2015-10-08 04:26:10 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) AS count_all, name AS name FROM "events" WHERE "events"."registered_application_id" = ? GROUP BY "events"."name"  [["registered_application_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) AS count_all, name AS name FROM "events" WHERE "events"."registered_application_id" = ? GROUP BY "events"."name"[0m  [["registered_application_id", 7]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  Rendered registered_applications/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 168ms (Views: 139.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/registered_applications/7" for 127.0.0.1 at 2015-10-08 04:26:49 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRegisteredApplication Load (0.1ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?[0m  [["registered_application_id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  Rendered registered_applications/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 136ms (Views: 130.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/registered_applications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/home.self-ebcf6e60396c3cd9ca10b8e3ff9bc797e79955df9cedf15fc4404aba0ea3468b.css?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/scaffolds.self-bbfc8981b6d132860acdc1f7b05af4bd071c54241ef285352b0ca9b7344c6ce3.css?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/application.self-486367efc7be858903e77cfa0b8efc9e247c2fd28d39944c7b0a4e1615f0996d.css?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/registered_applications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/assets/application.self-140c6a75d63d349ab896a65eb255dda72f22900625e4b282f2723747805a3aec.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:50 -0700
+
+
+Started GET "/registered_applications/7" for 127.0.0.1 at 2015-10-08 04:26:57 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRegisteredApplication Load (0.1ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?[0m  [["registered_application_id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  Rendered registered_applications/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 171ms (Views: 167.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/registered_applications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/home.self-ebcf6e60396c3cd9ca10b8e3ff9bc797e79955df9cedf15fc4404aba0ea3468b.css?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/scaffolds.self-bbfc8981b6d132860acdc1f7b05af4bd071c54241ef285352b0ca9b7344c6ce3.css?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/application.self-486367efc7be858903e77cfa0b8efc9e247c2fd28d39944c7b0a4e1615f0996d.css?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/registered_applications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/assets/application.self-140c6a75d63d349ab896a65eb255dda72f22900625e4b282f2723747805a3aec.js?body=1" for 127.0.0.1 at 2015-10-08 04:26:58 -0700
+
+
+Started GET "/registered_applications/7" for 127.0.0.1 at 2015-10-08 04:27:00 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?[0m  [["registered_application_id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  Rendered registered_applications/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 148ms (Views: 139.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/home.self-ebcf6e60396c3cd9ca10b8e3ff9bc797e79955df9cedf15fc4404aba0ea3468b.css?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/registered_applications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/scaffolds.self-bbfc8981b6d132860acdc1f7b05af4bd071c54241ef285352b0ca9b7344c6ce3.css?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/application.self-486367efc7be858903e77cfa0b8efc9e247c2fd28d39944c7b0a4e1615f0996d.css?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/registered_applications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/assets/application.self-140c6a75d63d349ab896a65eb255dda72f22900625e4b282f2723747805a3aec.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:01 -0700
+
+
+Started GET "/registered_applications/7" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) AS count_all, name AS name FROM "events" WHERE "events"."registered_application_id" = ? GROUP BY "events"."name"  [["registered_application_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) AS count_all, name AS name FROM "events" WHERE "events"."registered_application_id" = ? GROUP BY "events"."name"[0m  [["registered_application_id", 7]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  Rendered registered_applications/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 147ms (Views: 140.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/home.self-ebcf6e60396c3cd9ca10b8e3ff9bc797e79955df9cedf15fc4404aba0ea3468b.css?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/registered_applications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/scaffolds.self-bbfc8981b6d132860acdc1f7b05af4bd071c54241ef285352b0ca9b7344c6ce3.css?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/application.self-486367efc7be858903e77cfa0b8efc9e247c2fd28d39944c7b0a4e1615f0996d.css?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/registered_applications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/assets/application.self-140c6a75d63d349ab896a65eb255dda72f22900625e4b282f2723747805a3aec.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:09 -0700
+
+
+Started GET "/registered_applications/7" for 127.0.0.1 at 2015-10-08 04:27:12 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRegisteredApplication Load (0.1ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) AS count_all, name AS name FROM "events" WHERE "events"."registered_application_id" = ? GROUP BY "events"."name"  [["registered_application_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) AS count_all, name AS name FROM "events" WHERE "events"."registered_application_id" = ? GROUP BY "events"."name"[0m  [["registered_application_id", 7]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  Rendered registered_applications/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 209ms (Views: 201.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/home.self-ebcf6e60396c3cd9ca10b8e3ff9bc797e79955df9cedf15fc4404aba0ea3468b.css?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/registered_applications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/scaffolds.self-bbfc8981b6d132860acdc1f7b05af4bd071c54241ef285352b0ca9b7344c6ce3.css?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/application.self-486367efc7be858903e77cfa0b8efc9e247c2fd28d39944c7b0a4e1615f0996d.css?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/registered_applications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/assets/application.self-140c6a75d63d349ab896a65eb255dda72f22900625e4b282f2723747805a3aec.js?body=1" for 127.0.0.1 at 2015-10-08 04:27:13 -0700
+
+
+Started GET "/registered_applications/7" for 127.0.0.1 at 2015-10-08 04:27:37 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRegisteredApplication Load (0.1ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 7]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) AS count_all, name AS name FROM "events" WHERE "events"."registered_application_id" = ? GROUP BY "events"."name"  [["registered_application_id", 7]]
+  Rendered registered_applications/show.html.erb within layouts/application (7.0ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.6ms)
+
+ActionView::Template::Error (Connection adapter not supported: SQLite):
+    14:         <div>
+    15:           <%= name %> <span class="badge"><%= events.count %></span>
+    16:           <%= pie_chart @registered_application.events.group(:name).count %>
+    17:           <%= line_chart @registered_application.events.group_by_day(:created_at).count %>
+    18:         </div>
+    19:     <% end %>
+    20:     <br>
+  app/views/registered_applications/show.html.erb:17:in `block (2 levels) in _app_views_registered_applications_show_html_erb___1631077821340731617_70319670875320'
+  app/views/registered_applications/show.html.erb:13:in `each'
+  app/views/registered_applications/show.html.erb:13:in `block in _app_views_registered_applications_show_html_erb___1631077821340731617_70319670875320'
+  app/views/registered_applications/show.html.erb:1:in `_app_views_registered_applications_show_html_erb___1631077821340731617_70319670875320'
+
+
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.8ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.8ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (30.9ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (17.9ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (35.3ms)
