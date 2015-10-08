@@ -10,6 +10,8 @@ class RegisteredApplicationsController < ApplicationController
   def show
     @registered_application = RegisteredApplication.find(params[:id])
     authorize @registered_application
+
+    @events = @registered_application.events(:group => 'name')
   end
 
   def new

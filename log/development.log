@@ -5077,3 +5077,1183 @@ Processing by RegisteredApplicationsController#index as HTML
   Rendered registered_applications/_registered_application.html.erb (5.9ms)
   Rendered registered_applications/index.html.erb within layouts/application (8.1ms)
 Completed 200 OK in 133ms (Views: 131.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-08 02:00:34 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+Completed 200 OK in 409ms (Views: 396.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/registered_applications" for 127.0.0.1 at 2015-10-08 02:00:37 -0700
+Processing by RegisteredApplicationsController#index as HTML
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT "registered_applications".* FROM "registered_applications"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered registered_applications/_registered_application.html.erb (22.7ms)
+  Rendered registered_applications/index.html.erb within layouts/application (30.5ms)
+Completed 200 OK in 141ms (Views: 134.0ms | ActiveRecord: 0.7ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateEvents (20151008091155)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "registered_application_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_events_on_registered_application_id" ON "events" ("registered_application_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151008091155"]]
+  [1m[36m (104.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_events_on_registered_application_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_events_on_registered_application_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_registered_applications_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_registered_applications_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateEvents (20151008091155)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "events"
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20151008091155"]]
+  [1m[35m (124.9ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_registered_applications_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_registered_applications_on_user_id' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateEvents (20151008091527)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "user_id" integer, "registered_application_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_events_on_registered_application_id" ON "events" ("registered_application_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151008091527"]]
+  [1m[36m (134.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_events_on_registered_application_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_events_on_registered_application_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_registered_applications_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_registered_applications_on_user_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_events_on_registered_application_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_events_on_registered_application_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_registered_applications_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_registered_applications_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ramiro_kuhlman@schuppe.co' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Stanford Bruen"], ["email", "ramiro_kuhlman@schuppe.co"], ["encrypted_password", "$2a$10$4QV4Bcx7KzBXPWMLxPEsZOQwiSwZgasCq.XlIdCOjDq0CL/M8.8G."], ["confirmed_at", "2015-10-08 09:18:29.909495"], ["created_at", "2015-10-08 09:18:29.919232"], ["updated_at", "2015-10-08 09:18:29.919232"]]
+  [1m[36m (137.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'isobel.berge@oharadach.net' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Sammie Stark"], ["email", "isobel.berge@oharadach.net"], ["encrypted_password", "$2a$10$/yndW2YgpkKTg5RFmGvr3e6/A5mOhPv7zAXRfCeFnkocm/HIrn7Iy"], ["confirmed_at", "2015-10-08 09:18:30.150631"], ["created_at", "2015-10-08 09:18:30.152107"], ["updated_at", "2015-10-08 09:18:30.152107"]]
+  [1m[36m (128.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'marc_bergstrom@goodwin.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Mr. Geo Kuphal"], ["email", "marc_bergstrom@goodwin.com"], ["encrypted_password", "$2a$10$ThHrGlrjcXbtRna514J3zevNPEdmvmLzCZD1DJb7nQc2PJ624VtLa"], ["confirmed_at", "2015-10-08 09:18:30.377719"], ["created_at", "2015-10-08 09:18:30.379125"], ["updated_at", "2015-10-08 09:18:30.379125"]]
+  [1m[36m (141.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'member@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (280.0ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "user_id" integer, "registered_application_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (96.8ms)[0m  [1mCREATE  INDEX "index_events_on_registered_application_id" ON "events" ("registered_application_id")[0m
+  [1m[35m (113.7ms)[0m  CREATE TABLE "registered_applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "url" varchar, "user_id" integer) 
+  [1m[36m (97.5ms)[0m  [1mCREATE  INDEX "index_registered_applications_on_user_id" ON "registered_applications" ("user_id")[0m
+  [1m[35m (128.1ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT '' NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (122.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  [1m[35m (0.4ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+
+  [1m[36m (123.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+[0m
+  [1m[35m (144.5ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (136.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (122.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (122.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151008091527')
+  [1m[36m (140.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20151008082215')[0m
+  [1m[35m (107.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151001070245')
+  [1m[36m (103.1ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "user_id" integer, "registered_application_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (115.5ms)[0m  [1mCREATE  INDEX "index_events_on_registered_application_id" ON "events" ("registered_application_id")[0m
+  [1m[35m (122.5ms)[0m  CREATE TABLE "registered_applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "url" varchar, "user_id" integer) 
+  [1m[36m (121.9ms)[0m  [1mCREATE  INDEX "index_registered_applications_on_user_id" ON "registered_applications" ("user_id")[0m
+  [1m[35m (121.1ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT '' NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (122.5ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+
+  [1m[36m (122.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.4ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+[0m
+  [1m[35m (120.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (139.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (122.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (115.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151008091527')
+  [1m[36m (115.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20151008082215')[0m
+  [1m[35m (98.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151001070245')
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'else@homenick.biz' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Katelynn Jenkins"], ["email", "else@homenick.biz"], ["encrypted_password", "$2a$10$BAS3pNctwXmpCZqU.SseueKuSUcLdaDeHED6SJfPArpDlhUH6tiSW"], ["confirmed_at", "2015-10-08 09:19:02.391338"], ["created_at", "2015-10-08 09:19:02.399350"], ["updated_at", "2015-10-08 09:19:02.399350"]]
+  [1m[36m (121.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'branson@mueller.biz' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Esther Price"], ["email", "branson@mueller.biz"], ["encrypted_password", "$2a$10$lNgv71GhCxOexw/DaHnLZeOqnemq1My6E9qB4wNTNgcoVdt8W.3Xe"], ["confirmed_at", "2015-10-08 09:19:02.610114"], ["created_at", "2015-10-08 09:19:02.611480"], ["updated_at", "2015-10-08 09:19:02.611480"]]
+  [1m[36m (124.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jerrell@kub.co' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Kaelyn Towne"], ["email", "jerrell@kub.co"], ["encrypted_password", "$2a$10$d4HoDNY8LXx2ofwsAwmWZuE/JfB2T3jiDEcXbdwLuuZShy/JG7ZLi"], ["confirmed_at", "2015-10-08 09:19:02.826054"], ["created_at", "2015-10-08 09:19:02.827623"], ["updated_at", "2015-10-08 09:19:02.827623"]]
+  [1m[36m (123.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'member@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "encrypted_password", "confirmed_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Member User"], ["email", "member@example.com"], ["encrypted_password", "$2a$10$CPmzMGTRdSOezGV2cMrus.G74ECGvbTrad1ycziLPS21e5fzxlsxy"], ["confirmed_at", "2015-10-08 09:19:03.040993"], ["created_at", "2015-10-08 09:19:03.042380"], ["updated_at", "2015-10-08 09:19:03.042380"]]
+  [1m[36m (123.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "registered_applications" ("user_id", "name", "url") VALUES (?, ?, ?)  [["user_id", 3], ["name", "deleniti"], ["url", "http://aufderhargorczany.org/ruby.halvorson"]]
+  [1m[36m (127.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "registered_applications" ("user_id", "name", "url") VALUES (?, ?, ?)[0m  [["user_id", 2], ["name", "qui"], ["url", "http://tromp.biz/joey.reichel"]]
+  [1m[35m (127.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "registered_applications" ("user_id", "name", "url") VALUES (?, ?, ?)  [["user_id", 3], ["name", "labore"], ["url", "http://lakintorphy.name/elfrieda"]]
+  [1m[36m (129.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "registered_applications" ("user_id", "name", "url") VALUES (?, ?, ?)[0m  [["user_id", 2], ["name", "est"], ["url", "http://konopelskikuhn.net/vernon_hills"]]
+  [1m[35m (127.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "registered_applications" ("user_id", "name", "url") VALUES (?, ?, ?)  [["user_id", 2], ["name", "et"], ["url", "http://kautzerrenner.co/melia"]]
+  [1m[36m (118.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mRegisteredApplication Load (0.4ms)[0m  SELECT "registered_applications".* FROM "registered_applications"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["registered_application_id", 1], ["user_id", 3], ["name", "Level 1"], ["created_at", "2015-10-08 09:19:03.855627"], ["updated_at", "2015-10-08 09:19:03.855627"]]
+  [1m[36m (113.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["registered_application_id", 1], ["user_id", 3], ["name", "Level 2"], ["created_at", "2015-10-08 09:19:03.972263"], ["updated_at", "2015-10-08 09:19:03.972263"]]
+  [1m[35m (102.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["registered_application_id", 1], ["user_id", 3], ["name", "Level 3"], ["created_at", "2015-10-08 09:19:04.079491"], ["updated_at", "2015-10-08 09:19:04.079491"]]
+  [1m[36m (103.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["registered_application_id", 1], ["user_id", 3], ["name", "Level 4"], ["created_at", "2015-10-08 09:19:04.187727"], ["updated_at", "2015-10-08 09:19:04.187727"]]
+  [1m[35m (110.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["registered_application_id", 1], ["user_id", 3], ["name", "Level 5"], ["created_at", "2015-10-08 09:19:04.303258"], ["updated_at", "2015-10-08 09:19:04.303258"]]
+  [1m[36m (111.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["registered_application_id", 2], ["user_id", 2], ["name", "Level 1"], ["created_at", "2015-10-08 09:19:04.419747"], ["updated_at", "2015-10-08 09:19:04.419747"]]
+  [1m[35m (126.7ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["registered_application_id", 2], ["user_id", 2], ["name", "Level 2"], ["created_at", "2015-10-08 09:19:04.551954"], ["updated_at", "2015-10-08 09:19:04.551954"]]
+  [1m[36m (127.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["registered_application_id", 2], ["user_id", 2], ["name", "Level 3"], ["created_at", "2015-10-08 09:19:04.684630"], ["updated_at", "2015-10-08 09:19:04.684630"]]
+  [1m[35m (126.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["registered_application_id", 2], ["user_id", 2], ["name", "Level 4"], ["created_at", "2015-10-08 09:19:04.816822"], ["updated_at", "2015-10-08 09:19:04.816822"]]
+  [1m[36m (126.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["registered_application_id", 2], ["user_id", 2], ["name", "Level 5"], ["created_at", "2015-10-08 09:19:04.949266"], ["updated_at", "2015-10-08 09:19:04.949266"]]
+  [1m[35m (126.7ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["registered_application_id", 3], ["user_id", 3], ["name", "Level 1"], ["created_at", "2015-10-08 09:19:05.081402"], ["updated_at", "2015-10-08 09:19:05.081402"]]
+  [1m[36m (110.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["registered_application_id", 3], ["user_id", 3], ["name", "Level 2"], ["created_at", "2015-10-08 09:19:05.197396"], ["updated_at", "2015-10-08 09:19:05.197396"]]
+  [1m[35m (120.3ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["registered_application_id", 3], ["user_id", 3], ["name", "Level 3"], ["created_at", "2015-10-08 09:19:05.323101"], ["updated_at", "2015-10-08 09:19:05.323101"]]
+  [1m[36m (135.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["registered_application_id", 3], ["user_id", 3], ["name", "Level 4"], ["created_at", "2015-10-08 09:19:05.463828"], ["updated_at", "2015-10-08 09:19:05.463828"]]
+  [1m[35m (126.8ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["registered_application_id", 3], ["user_id", 3], ["name", "Level 5"], ["created_at", "2015-10-08 09:19:05.596210"], ["updated_at", "2015-10-08 09:19:05.596210"]]
+  [1m[36m (118.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["registered_application_id", 4], ["user_id", 2], ["name", "Level 1"], ["created_at", "2015-10-08 09:19:05.720484"], ["updated_at", "2015-10-08 09:19:05.720484"]]
+  [1m[35m (118.4ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["registered_application_id", 4], ["user_id", 2], ["name", "Level 2"], ["created_at", "2015-10-08 09:19:05.844642"], ["updated_at", "2015-10-08 09:19:05.844642"]]
+  [1m[36m (118.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["registered_application_id", 4], ["user_id", 2], ["name", "Level 3"], ["created_at", "2015-10-08 09:19:05.968569"], ["updated_at", "2015-10-08 09:19:05.968569"]]
+  [1m[35m (134.8ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["registered_application_id", 4], ["user_id", 2], ["name", "Level 4"], ["created_at", "2015-10-08 09:19:06.109392"], ["updated_at", "2015-10-08 09:19:06.109392"]]
+  [1m[36m (134.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["registered_application_id", 4], ["user_id", 2], ["name", "Level 5"], ["created_at", "2015-10-08 09:19:06.249481"], ["updated_at", "2015-10-08 09:19:06.249481"]]
+  [1m[35m (119.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["registered_application_id", 5], ["user_id", 2], ["name", "Level 1"], ["created_at", "2015-10-08 09:19:06.373633"], ["updated_at", "2015-10-08 09:19:06.373633"]]
+  [1m[36m (118.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["registered_application_id", 5], ["user_id", 2], ["name", "Level 2"], ["created_at", "2015-10-08 09:19:06.497762"], ["updated_at", "2015-10-08 09:19:06.497762"]]
+  [1m[35m (135.4ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["registered_application_id", 5], ["user_id", 2], ["name", "Level 3"], ["created_at", "2015-10-08 09:19:06.638655"], ["updated_at", "2015-10-08 09:19:06.638655"]]
+  [1m[36m (135.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["registered_application_id", 5], ["user_id", 2], ["name", "Level 4"], ["created_at", "2015-10-08 09:19:06.779262"], ["updated_at", "2015-10-08 09:19:06.779262"]]
+  [1m[35m (135.7ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "events" ("registered_application_id", "user_id", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["registered_application_id", 5], ["user_id", 2], ["name", "Level 5"], ["created_at", "2015-10-08 09:19:06.919564"], ["updated_at", "2015-10-08 09:19:06.919564"]]
+  [1m[36m (126.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "registered_applications"[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events"
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-08 02:23:39 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+Completed 200 OK in 492ms (Views: 473.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-10-08 02:24:04 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (377.6ms)
+Completed 200 OK in 528ms (Views: 508.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-10-08 02:24:17 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VviZd1Izerk3sXNToHWWU4TzDCvt8a0pXP5rVZSuEeYpnw2zTCys/neeC+UL1A9shYa837TNTG2+fPBh+PebBQ==", "user"=>{"email"=>"member@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "member@example.com"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-10-08 09:24:17.180125"], ["current_sign_in_at", "2015-10-08 09:24:17.180125"], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-10-08 09:24:17.181213"], ["id", 4]]
+  [1m[35m (108.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 215ms (ActiveRecord: 109.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-08 02:24:17 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+Completed 200 OK in 117ms (Views: 114.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/registered_applications" for 127.0.0.1 at 2015-10-08 02:24:20 -0700
+Processing by RegisteredApplicationsController#index as HTML
+  [1m[35mRegisteredApplication Load (0.2ms)[0m  SELECT "registered_applications".* FROM "registered_applications"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered registered_applications/_registered_application.html.erb (17.2ms)
+  Rendered registered_applications/index.html.erb within layouts/application (21.8ms)
+Completed 200 OK in 125ms (Views: 120.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/registered_applications/1" for 127.0.0.1 at 2015-10-08 02:24:22 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mRegisteredApplication Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered registered_applications/show.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (undefined method `group_by' for nil:NilClass):
+    10:       <% end %>
+    11:     </div>
+    12:     <h1> Events </h1>
+    13:     <% @events.group_by(&:name).each do |name, events| %>
+    14:         <div>
+    15:           <%= name %> <span class="badge"><%= events.count %></span>
+    16:         </div>
+  app/views/registered_applications/show.html.erb:13:in `block in _app_views_registered_applications_show_html_erb___1948739691613556960_70290420745280'
+  app/views/registered_applications/show.html.erb:1:in `_app_views_registered_applications_show_html_erb___1948739691613556960_70290420745280'
+
+
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (23.5ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (14.2ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (28.5ms)
+
+
+Started GET "/registered_applications/1" for 127.0.0.1 at 2015-10-08 02:24:23 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRegisteredApplication Load (0.1ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mRegisteredApplication Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered registered_applications/show.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `group_by' for nil:NilClass):
+    10:       <% end %>
+    11:     </div>
+    12:     <h1> Events </h1>
+    13:     <% @events.group_by(&:name).each do |name, events| %>
+    14:         <div>
+    15:           <%= name %> <span class="badge"><%= events.count %></span>
+    16:         </div>
+  app/views/registered_applications/show.html.erb:13:in `block in _app_views_registered_applications_show_html_erb___1948739691613556960_70290427126480'
+  app/views/registered_applications/show.html.erb:1:in `_app_views_registered_applications_show_html_erb___1948739691613556960_70290427126480'
+
+
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (25.2ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (15.0ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (30.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-08 02:25:24 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+Completed 200 OK in 231ms (Views: 228.7ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-10-08 02:25:28 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"sWHWkv817FG6eZ0BljrS4CA0zpZWryRluDMEOzM37I/UByahpVSfmooxhWEojbYt2vcm4FNaLkZvSiykmZ1jbQ=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-08 02:25:28 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 163ms (Views: 161.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-10-08 02:25:30 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 152ms (Views: 149.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-10-08 02:25:38 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Fk4xdEEgx5sL9NljwqEQRp7/xWEeI6IVR3UiT06YlrwfUxzmkcnA3j3n/DY4gMx+DgUwFFtwR1O+5ZSYpvNQOg==", "user"=>{"email"=>"ketankshukla@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "ketankshukla@gmail.com"]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.1ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Fk4xdEEgx5sL9NljwqEQRp7/xWEeI6IVR3UiT06YlrwfUxzmkcnA3j3n/DY4gMx+DgUwFFtwR1O+5ZSYpvNQOg==", "user"=>{"email"=>"ketankshukla@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 217ms (Views: 128.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-10-08 02:25:40 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 132ms (Views: 129.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-10-08 02:25:51 -0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qQIjn4sJ0QHkEz3NjFKKBIJG2yTQbO5J5E9XtY1bqumgHw4NW+DWRNIAGJh2c1Y8ErwuUZU/Cw8d3+FiZTBsbw==", "user"=>{"name"=>"Ketan Shukla", "email"=>"ketankshukla@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ketankshukla@gmail.com' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["confirmation_token", "07aa769e5242877537d25a9b8cffc6533695463489e791857a636f8ee23ba0f4"]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "ketankshukla@gmail.com"], ["encrypted_password", "$2a$10$bnqC.MkMa4WFPCxtljbZWeNyAPRvMhHgwykhM6BsxWZVrL5w9Tpy6"], ["name", "Ketan Shukla"], ["created_at", "2015-10-08 09:25:51.463964"], ["updated_at", "2015-10-08 09:25:51.463964"], ["confirmation_token", "wLQDRHy3RFyzHFF3bybs"], ["confirmation_sent_at", "2015-10-08 09:25:51.762324"]]
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.1ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 191.6ms
+
+Sent mail to ketankshukla@gmail.com (872.9ms)
+Date: Thu, 08 Oct 2015 02:25:51 -0700
+From: Ketan Shukla Rails Developer <ketankshukla@gmail.com>
+Reply-To: Ketan Shukla Rails Developer <ketankshukla@gmail.com>
+To: ketankshukla@gmail.com
+Message-ID: <5616369fed3c1_708d1da54d41531c@coder.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome ketankshukla@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=wLQDRHy3RFyzHFF3bybs">Confirm my account</a></p>
+
+  [1m[35m (131.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 1615ms (ActiveRecord: 132.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-08 02:25:52 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 135ms (Views: 133.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=wLQDRHy3RFyzHFF3bybs" for 127.0.0.1 at 2015-10-08 02:26:21 -0700
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"wLQDRHy3RFyzHFF3bybs"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["confirmation_token", "wLQDRHy3RFyzHFF3bybs"]]
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "confirmed_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["confirmed_at", "2015-10-08 09:26:21.132856"], ["updated_at", "2015-10-08 09:26:21.134315"], ["id", 5]]
+  [1m[35m (128.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 137ms (ActiveRecord: 129.4ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-10-08 02:26:21 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 174ms (Views: 170.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-10-08 02:26:29 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wzo8vRZFP9On+CHmHhLO1efa62x3n1rcMPYW/ed97n7KJxEvxqw4lpHrBLPkMxLtdyAeGTLMv5rJZqAqDxYo+A==", "user"=>{"email"=>"ketankshukla@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "ketankshukla@gmail.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-10-08 09:26:29.751414"], ["current_sign_in_at", "2015-10-08 09:26:29.751414"], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-10-08 09:26:29.752650"], ["id", 5]]
+  [1m[35m (150.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 311ms (ActiveRecord: 151.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-08 02:26:29 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+Completed 200 OK in 206ms (Views: 204.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/registered_applications" for 127.0.0.1 at 2015-10-08 02:26:33 -0700
+Processing by RegisteredApplicationsController#index as HTML
+  [1m[35mRegisteredApplication Load (0.2ms)[0m  SELECT "registered_applications".* FROM "registered_applications"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered registered_applications/_registered_application.html.erb (7.5ms)
+  Rendered registered_applications/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 183ms (Views: 181.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/registered_applications/new" for 127.0.0.1 at 2015-10-08 02:26:38 -0700
+Processing by RegisteredApplicationsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  Rendered registered_applications/_form.html.erb (3.3ms)
+  Rendered registered_applications/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 123ms (Views: 121.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/registered_applications" for 127.0.0.1 at 2015-10-08 02:26:49 -0700
+Processing by RegisteredApplicationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+cj8QUTo4BWMY0dw3yhaxIG1LR/qBdlZ9pX0bPFX/ROmnmhsuAoyPSuNuBsGxjwCYFK2/Clhhg/k/9Nhtvr6JQ==", "registered_application"=>{"name"=>"CNN", "url"=>"http://cnn.com"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "registered_applications" ("name", "url", "user_id") VALUES (?, ?, ?)  [["name", "CNN"], ["url", "http://cnn.com"], ["user_id", 5]]
+  [1m[36m (168.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/registered_applications/6
+Completed 302 Found in 176ms (ActiveRecord: 169.1ms)
+
+
+Started GET "/registered_applications/6" for 127.0.0.1 at 2015-10-08 02:26:49 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mRegisteredApplication Load (0.2ms)[0m  SELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRegisteredApplication Exists (0.1ms)[0m  SELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered registered_applications/show.html.erb within layouts/application (5.8ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (undefined method `group_by' for nil:NilClass):
+    10:       <% end %>
+    11:     </div>
+    12:     <h1> Events </h1>
+    13:     <% @events.group_by(&:name).each do |name, events| %>
+    14:         <div>
+    15:           <%= name %> <span class="badge"><%= events.count %></span>
+    16:         </div>
+  app/views/registered_applications/show.html.erb:13:in `block in _app_views_registered_applications_show_html_erb___1948739691613556960_70290427126480'
+  app/views/registered_applications/show.html.erb:1:in `_app_views_registered_applications_show_html_erb___1948739691613556960_70290427126480'
+
+
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.9ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (31.9ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (20.8ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (42.6ms)
+
+
+Started GET "/registered_applications/6" for 127.0.0.1 at 2015-10-08 02:29:22 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mRegisteredApplication Load (0.2ms)[0m  SELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRegisteredApplication Exists (0.2ms)[0m  SELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 6]]
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 1.6ms)
+
+NoMethodError (undefined method `events' for #<RegisteredApplication:0x007fdb87e7af30>):
+  app/controllers/registered_applications_controller.rb:14:in `show'
+
+
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.7ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.1ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (18.1ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (35.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-08 02:29:52 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+Completed 200 OK in 492ms (Views: 473.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/registered_applications" for 127.0.0.1 at 2015-10-08 02:29:54 -0700
+Processing by RegisteredApplicationsController#index as HTML
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT "registered_applications".* FROM "registered_applications"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered registered_applications/_registered_application.html.erb (16.4ms)
+  Rendered registered_applications/index.html.erb within layouts/application (34.9ms)
+Completed 200 OK in 148ms (Views: 140.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/registered_applications/6" for 127.0.0.1 at 2015-10-08 02:29:58 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mRegisteredApplication Load (0.6ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 6]]
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.9ms)
+
+NoMethodError (undefined method `events' for #<RegisteredApplication:0x007f522a2f0a48>):
+  app/controllers/registered_applications_controller.rb:14:in `show'
+
+
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (20.9ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (15.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (29.8ms)
+
+
+Started GET "/registered_applications/6" for 127.0.0.1 at 2015-10-08 02:29:58 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mRegisteredApplication Load (0.2ms)[0m  SELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRegisteredApplication Exists (0.2ms)[0m  SELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 6]]
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.6ms)
+
+NoMethodError (undefined method `events' for #<RegisteredApplication:0x007f522a316a18>):
+  app/controllers/registered_applications_controller.rb:14:in `show'
+
+
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.8ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (16.5ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/ketan/.rvm/gems/ruby-2.2.1@rails4.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (33.8ms)
+
+
+Started GET "/registered_applications/6" for 127.0.0.1 at 2015-10-08 02:30:50 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mRegisteredApplication Load (0.1ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 6]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 6]]
+  Rendered registered_applications/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 193ms (Views: 136.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/registered_applications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/home.self-ebcf6e60396c3cd9ca10b8e3ff9bc797e79955df9cedf15fc4404aba0ea3468b.css?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/application.self-486367efc7be858903e77cfa0b8efc9e247c2fd28d39944c7b0a4e1615f0996d.css?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/scaffolds.self-bbfc8981b6d132860acdc1f7b05af4bd071c54241ef285352b0ca9b7344c6ce3.css?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/home.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/registered_applications.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/assets/application.self-120f3cf1cb67bea53c4a2a57336b34ca04b04b55a55c38cf76ce20a147e5eff9.js?body=1" for 127.0.0.1 at 2015-10-08 02:30:51 -0700
+
+
+Started GET "/registered_applications" for 127.0.0.1 at 2015-10-08 02:31:03 -0700
+Processing by RegisteredApplicationsController#index as HTML
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT "registered_applications".* FROM "registered_applications"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered registered_applications/_registered_application.html.erb (5.5ms)
+  Rendered registered_applications/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 124ms (Views: 122.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registered_applications/3" for 127.0.0.1 at 2015-10-08 02:31:04 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRegisteredApplication Load (0.1ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 3]]
+  Rendered registered_applications/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 128ms (Views: 118.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/registered_applications" for 127.0.0.1 at 2015-10-08 02:31:13 -0700
+Processing by RegisteredApplicationsController#index as HTML
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT "registered_applications".* FROM "registered_applications"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered registered_applications/_registered_application.html.erb (15.2ms)
+  Rendered registered_applications/index.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 128ms (Views: 126.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/registered_applications/2" for 127.0.0.1 at 2015-10-08 02:31:15 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 2]]
+  Rendered registered_applications/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 120ms (Views: 114.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/registered_applications" for 127.0.0.1 at 2015-10-08 02:31:17 -0700
+Processing by RegisteredApplicationsController#index as HTML
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT "registered_applications".* FROM "registered_applications"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered registered_applications/_registered_application.html.erb (5.6ms)
+  Rendered registered_applications/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 122ms (Views: 120.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registered_applications/1" for 127.0.0.1 at 2015-10-08 02:31:18 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRegisteredApplication Load (0.1ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 1]]
+  Rendered registered_applications/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 115ms (Views: 111.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registered_applications" for 127.0.0.1 at 2015-10-08 02:31:20 -0700
+Processing by RegisteredApplicationsController#index as HTML
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT "registered_applications".* FROM "registered_applications"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered registered_applications/_registered_application.html.erb (6.1ms)
+  Rendered registered_applications/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 121ms (Views: 118.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/registered_applications/5" for 127.0.0.1 at 2015-10-08 02:31:23 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRegisteredApplication Load (0.1ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 5]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 5]]
+  Rendered registered_applications/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 122ms (Views: 116.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/registered_applications" for 127.0.0.1 at 2015-10-08 02:31:24 -0700
+Processing by RegisteredApplicationsController#index as HTML
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT "registered_applications".* FROM "registered_applications"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered registered_applications/_registered_application.html.erb (5.7ms)
+  Rendered registered_applications/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 122ms (Views: 120.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registered_applications/6" for 127.0.0.1 at 2015-10-08 02:31:25 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mRegisteredApplication Load (0.3ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 6]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 6]]
+  Rendered registered_applications/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 129ms (Views: 116.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/registered_applications" for 127.0.0.1 at 2015-10-08 02:31:31 -0700
+Processing by RegisteredApplicationsController#index as HTML
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT "registered_applications".* FROM "registered_applications"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered registered_applications/_registered_application.html.erb (6.7ms)
+  Rendered registered_applications/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 129ms (Views: 126.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/registered_applications/1" for 127.0.0.1 at 2015-10-08 02:31:32 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRegisteredApplication Load (0.1ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 1]]
+  Rendered registered_applications/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 117ms (Views: 111.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/registered_applications" for 127.0.0.1 at 2015-10-08 02:31:35 -0700
+Processing by RegisteredApplicationsController#index as HTML
+  [1m[36mRegisteredApplication Load (0.2ms)[0m  [1mSELECT "registered_applications".* FROM "registered_applications"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered registered_applications/_registered_application.html.erb (5.8ms)
+  Rendered registered_applications/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 123ms (Views: 119.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/registered_applications/6" for 127.0.0.1 at 2015-10-08 02:31:37 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mRegisteredApplication Load (0.1ms)[0m  [1mSELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36mRegisteredApplication Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mEvent Load (0.0ms)[0m  SELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 6]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?  [["registered_application_id", 6]]
+  Rendered registered_applications/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 130ms (Views: 126.0ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/registered_applications/6" for 127.0.0.1 at 2015-10-08 02:31:40 -0700
+Processing by RegisteredApplicationsController#destroy as JS
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRegisteredApplication Load (0.1ms)[0m  SELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?[0m  [["registered_application_id", 6]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "registered_applications" WHERE "registered_applications"."id" = ?  [["id", 6]]
+  [1m[36m (124.7ms)[0m  [1mcommit transaction[0m
+  Rendered registered_applications/destroy.js.erb (1.7ms)
+Completed 200 OK in 141ms (Views: 8.7ms | ActiveRecord: 125.3ms)
+
+
+Started GET "/registered_applications" for 127.0.0.1 at 2015-10-08 02:31:45 -0700
+Processing by RegisteredApplicationsController#index as HTML
+  [1m[35mRegisteredApplication Load (0.2ms)[0m  SELECT "registered_applications".* FROM "registered_applications"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered registered_applications/_registered_application.html.erb (6.5ms)
+  Rendered registered_applications/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 129ms (Views: 127.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registered_applications/new" for 127.0.0.1 at 2015-10-08 02:31:47 -0700
+Processing by RegisteredApplicationsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  Rendered registered_applications/_form.html.erb (399.9ms)
+  Rendered registered_applications/new.html.erb within layouts/application (400.9ms)
+Completed 200 OK in 561ms (Views: 558.8ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/registered_applications" for 127.0.0.1 at 2015-10-08 02:32:01 -0700
+Processing by RegisteredApplicationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pBEV2VOublKwbrAnwkpDt8dJyvOGmOFCRIROdVM/jz/7R4H0r0y8eheAT0wbpCVxJq5REEX8vhRW7ml4FJKICQ==", "registered_application"=>{"name"=>"Fox News", "url"=>"http://www.foxnews.com"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "registered_applications" ("name", "url", "user_id") VALUES (?, ?, ?)  [["name", "Fox News"], ["url", "http://www.foxnews.com"], ["user_id", 5]]
+  [1m[36m (185.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/registered_applications/7
+Completed 302 Found in 192ms (ActiveRecord: 186.3ms)
+
+
+Started GET "/registered_applications/7" for 127.0.0.1 at 2015-10-08 02:32:01 -0700
+Processing by RegisteredApplicationsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mRegisteredApplication Load (0.2ms)[0m  SELECT  "registered_applications".* FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mRegisteredApplication Exists (0.1ms)[0m  SELECT  1 AS one FROM "registered_applications" WHERE "registered_applications"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."registered_application_id" = ?[0m  [["registered_application_id", 7]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."registered_application_id" = ?[0m  [["registered_application_id", 7]]
+  Rendered registered_applications/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 166ms (Views: 160.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/registered_applications" for 127.0.0.1 at 2015-10-08 02:32:12 -0700
+Processing by RegisteredApplicationsController#index as HTML
+  [1m[35mRegisteredApplication Load (0.2ms)[0m  SELECT "registered_applications".* FROM "registered_applications"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered registered_applications/_registered_application.html.erb (9.7ms)
+  Rendered registered_applications/index.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 129ms (Views: 127.8ms | ActiveRecord: 0.7ms)
