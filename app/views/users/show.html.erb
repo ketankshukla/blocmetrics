@@ -1,0 +1,4 @@
+<h1 class="text-center">My Registered Applications</h1>
+<% @registered_applications.each do | registered_application | %>
+    <%= render partial: 'users/registered_application', locals: { registered_application: registered_application } %>
+<% end %>

@@ -1,0 +1,12 @@
+<%= content_tag_for :div, @registered_application do %>
+    <div align="center">
+      <h1>
+        <%= "#{@registered_application.name}" %>
+        <br/><%= link_to @registered_application.url, "http://#{@registered_application.url}", :target => '_blank' %>
+      </h1>
+      <% if policy(@registered_application).edit? %>
+          <%= link_to "Edit", edit_registered_application_path, class: 'btn btn-success' %>
+          <%= link_to "Delete", registered_application_path(@registered_application), method: :delete, remote: true, class: 'btn btn-danger' %>
+      <% end %>
+    </div>
+<% end %>
