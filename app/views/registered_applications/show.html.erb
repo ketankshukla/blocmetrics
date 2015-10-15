@@ -11,17 +11,17 @@
     </div>
     <h1> Events </h1>
     <% @events.group_by(&:name).each do |name, events| %>
-        <div>
-          <%= name %> <span class="badge"><%= events.count %></span>
-            <% if false %>
-                <% unless  Rails.env.development? %>
-                  <%= pie_chart @registered_application.events.group(:name).count %>
-                <%= line_chart @registered_application.events.group_by_day(:created_at).count %>
-              <% end %>
-          <% end %>
-
-        </div>
+      <div>
+        <%= name %> <span class="badge"><%= events.count %></span>
+      </div>
     <% end %>
+
+    <div>
+      <script src="//www.google.com/jsapi"></script>
+      <script src="chartkick.js"></script>
+      <%= pie_chart @registered_application.events.group(:name).count %>
+    </div>
+
     <br>
     <div>
       <button class="btn btn-primary" type="button">
